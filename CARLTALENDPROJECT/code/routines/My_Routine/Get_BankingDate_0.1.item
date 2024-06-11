@@ -1,0 +1,43 @@
+package routines;
+import java.time.LocalDate;
+import java.util.Date;
+
+
+public class Get_BankingDate {
+
+	public static void get_10days()
+	{
+		LocalDate currDate = LocalDate.now();
+		int dayCounter = 0;
+		int totalNumOfLoop = 0;
+		
+		while(dayCounter != 10)
+		{
+			dayCounter = dayCounter + 1;
+			currDate = currDate.plusDays(1);
+
+			if ( (currDate.getDayOfWeek().toString().equals("SATURDAY") ) || (currDate.getDayOfWeek().toString()).equals("SUNDAY") ) 
+			{
+				dayCounter = dayCounter - 1;
+//				System.out.println("currDate : " + currDate);
+
+			}
+						
+			totalNumOfLoop = totalNumOfLoop + 1;
+		}
+		
+		System.out.println("Current Date : " + LocalDate.now());
+		System.out.println("10 Banking Days from now : " + currDate);
+//		System.out.println("currDate.getDayOfWeek : " + currDate.getDayOfWeek());
+        System.out.println("dayCounter :" + dayCounter);
+        System.out.println("totalNumOfLoop :" + totalNumOfLoop);        
+        
+	}
+	
+    public static void helloExample(String message) {
+        if (message == null) {
+            message = "World"; //$NON-NLS-1$
+        }
+        System.out.println("Hello " + message + " !"); //$NON-NLS-1$ //$NON-NLS-2$
+    }
+}
